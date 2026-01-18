@@ -22,9 +22,11 @@ kubectl describe pv local-pv
 local-pv - наш созданный вручную, статус Available
 pvc-dcd0e528... - автоматически созданный, статус Bound к PVC
 PVC привязался не к нашему local-pv, а к автоматически созданному PV потому что:
-*У автоматического PV storageClassName: standard (дефолтный)
-*У нашего PV не указан storageClassName
-*PVC ищет подходящий PV, нашел стандартный и привязался к нему
+1)У автоматического PV storageClassName: standard (дефолтный)
+
+2)У нашего PV не указан storageClassName
+
+3)PVC ищет подходящий PV, нашел стандартный и привязался к нему
 ```
 nano simple-pv-pvc.yaml
 kubectl apply -f simple-pv-pvc.yaml --validate=false
